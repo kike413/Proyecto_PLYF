@@ -25,7 +25,7 @@ public class NewClass {
     Interpreter interpreter;
 
     env = new Environment();
-    env.ensureLoaded(AtomTerm.get("C:/Users/jvega/Documents/Escuela/8voSemestre/Programacionlogicayfuncional/OutClassRoomPLYF/U3T3.pl"));
+    env.ensureLoaded(AtomTerm.get("C:/Users/jvega/Documents/GitHub/Proyecto_PLYF/CodigoFuente/U3T3.pl"));
     // Obtenemos el interprete
     interpreter = env.createInterpreter();
     // Y lo inicializamos
