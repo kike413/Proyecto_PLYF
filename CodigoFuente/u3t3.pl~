@@ -16,22 +16,6 @@ progenitor(adrian, carla).
 progenitor(adrian, sandra).
 progenitor(jorge, pablo).
 
-persona(pablo).
-persona(sandra).
-persona(carla).
-persona(jose).
-persona(emily).
-persona(giovanni).
-persona(marlene).
-persona(carlos).
-persona(luis).
-persona(anna).
-persona(jorge).
-persona(adrian).
-persona(brenda).
-persona(enrique).
-persona(maria).
-persona(leo).
 
 mujer(maria).
 mujer(brenda).
