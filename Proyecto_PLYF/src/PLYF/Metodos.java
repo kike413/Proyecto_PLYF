@@ -28,7 +28,7 @@ public class Metodos {
         System.out.println(t1 + " " + (q1.hasSolution() ? "verdadero" : "fallo")); //mostrara mensaje  si hay o no conexion
 
     }
-
+    
     public void MostarTodos(javax.swing.JComboBox Lista) {
 
         Compound te1 = new Compound(
@@ -205,5 +205,20 @@ public class Metodos {
             Term t = (Term) personas.get("X");
             papa.addItem(t.toString());
         }
+    }
+    
+    public void Limpiar(javax.swing.JComboBox abuelo, javax.swing.JComboBox abuela, javax.swing.JComboBox papa,
+                        javax.swing.JComboBox mama, javax.swing.JComboBox hermano, javax.swing.JComboBox hermana,
+                        javax.swing.JComboBox primo, javax.swing.JComboBox prima, javax.swing.JComboBox tio, javax.swing.JComboBox tia){
+        abuelo.removeAllItems();
+        abuela.removeAllItems();
+        papa.removeAllItems();
+        mama.removeAllItems();
+        hermano.removeAllItems();
+        hermana.removeAllItems();
+        primo.removeAllItems();
+        prima.removeAllItems();
+        tio.removeAllItems();
+        tia.removeAllItems();
     }
 }

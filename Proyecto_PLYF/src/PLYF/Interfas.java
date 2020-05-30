@@ -19,17 +19,7 @@ public class Interfas extends javax.swing.JFrame {
         this.setSize(new Dimension(730, 430));this.setMinimumSize(new Dimension(730, 430));
         met.Conexion();
         met.MostarTodos(todos);
-        met.madre(todos.getSelectedItem().toString(), madre);
-        met.padre(todos.getSelectedItem().toString(), padre);
-        met.Abuelos(todos.getSelectedItem().toString(), abuelo);
-        met.Abuelas(todos.getSelectedItem().toString(), abuela);
-        met.Hermano(todos.getSelectedItem().toString(), hermanos);
-        met.Hermana(todos.getSelectedItem().toString(), hermanas);
-        met.Hermano(todos.getSelectedItem().toString(), hermanos);
-        met.Prima(todos.getSelectedItem().toString(), primas);
-        met.Primo(todos.getSelectedItem().toString(), primos);
-        met.Tia(todos.getSelectedItem().toString(), tias);
-        met.Tio(todos.getSelectedItem().toString(), tios);
+        
     }
 
     /**
@@ -142,19 +132,14 @@ public class Interfas extends javax.swing.JFrame {
                                     .addComponent(padre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(197, 197, 197)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 105, Short.MAX_VALUE)
-                                .addGap(43, 43, 43))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                .addGap(43, 43, 43))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                .addGap(43, 43, 43))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                .addGap(43, 43, 43))
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 105, Short.MAX_VALUE)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                                .addGap(43, 43, 43)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(primas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(primos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,8 +217,16 @@ public class Interfas extends javax.swing.JFrame {
 
         todos.setBackground(new java.awt.Color(153, 204, 255));
         todos.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        todos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Selecciona Una Persona--" }));
+        todos.setToolTipText("");
+        todos.setName(""); // NOI18N
+        todos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                todosActionPerformed(evt);
+            }
+        });
         getContentPane().add(todos);
-        todos.setBounds(360, 40, 101, 29);
+        todos.setBounds(360, 40, 200, 29);
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/Proyecto.png"))); // NOI18N
         jLabel13.setText("Proyecto Final Programacion Lógica y Funcinal");
@@ -242,6 +235,22 @@ public class Interfas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void todosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todosActionPerformed
+        met.Limpiar(abuelo, abuela, padre, madre, hermanos, hermanas, primos, primas, tios, tias);
+        met.madre(todos.getSelectedItem().toString(), madre);
+        met.padre(todos.getSelectedItem().toString(), padre);
+        met.Abuelos(todos.getSelectedItem().toString(), abuelo);
+        met.Abuelas(todos.getSelectedItem().toString(), abuela);
+        met.Hermano(todos.getSelectedItem().toString(), hermanos);
+        met.Hermana(todos.getSelectedItem().toString(), hermanas);
+        met.Hermano(todos.getSelectedItem().toString(), hermanos);
+        met.Prima(todos.getSelectedItem().toString(), primas);
+        met.Primo(todos.getSelectedItem().toString(), primos);
+        met.Tia(todos.getSelectedItem().toString(), tias);
+        met.Tio(todos.getSelectedItem().toString(), tios);
+        
+    }//GEN-LAST:event_todosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -274,6 +283,7 @@ public class Interfas extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Interfas().setVisible(true);
+                
             }
         });
     }
