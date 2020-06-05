@@ -15,7 +15,9 @@ progenitor(adrian, jose).
 progenitor(adrian, carla).
 progenitor(adrian, sandra).
 progenitor(jorge, pablo).
+progenitor(marlene, victor).
 
+persona(victor).
 persona(pablo).
 persona(sandra).
 persona(carla).
@@ -51,6 +53,7 @@ hombre(giovanni).
 hombre(jose).
 hombre(jorge).
 hombre(pablo).
+hombre(victor).
 
 
 
@@ -122,7 +125,16 @@ abuela(ABUELA,Y) :- progenitor(PAPA,Y),
     progenitor(ABUELA, PAPA),
     mujer(ABUELA).
 
+bisabuelo(BISABUELO,Y) :- progenitor(PAPA,Y),
+    progenitor(ABUELO, PAPA), progenitor(BISABUELO, ABUELO).
 
+bisabuela(BISABUELO,Y) :- progenitor(PAPA,Y),
+    progenitor(ABUELO, PAPA), progenitor(BISABUELO, ABUELO),
+    mujer(BISABUELO).
+
+bisnieto(Y,BISABUELO) :- progenitor(PAPA,Y),
+    progenitor(ABUELO, PAPA), progenitor(BISABUELO, ABUELO),
+    hombre(BISABUELO).
 
 
 

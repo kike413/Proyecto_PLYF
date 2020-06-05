@@ -18,7 +18,7 @@ import org.jpl7.Variable;
  */
 public class Metodos {
 
-    String proyecto = "C:/Users/jvega/Documents/GitHub/Proyecto_PLYF/CodigoFuente/U3T3.pl";
+    String proyecto = "C:/Users/jvega/Documents/GitHub/Proyecto_PLYF/CodigoFuente Y Arbol/U3T3.pl";
     String t1;
     Query q1;
 
@@ -77,6 +77,53 @@ public class Metodos {
         }
     }
     
+    public void Bisabuelas(String persona, javax.swing.JComboBox bisabuela) {
+        Compound te1 = new Compound(
+                "bisabuela",
+                new Term[]{
+                    new Variable("X"),
+                    new Atom (persona)
+                }
+        );
+        q1 = new Query(te1);
+        while (q1.hasNext()) {
+            Map<String, Term> personas = q1.next();
+            Term t = (Term) personas.get("X");
+            bisabuela.addItem(t.toString());
+        }
+    }
+    
+    public void Bisabuelos(String persona, javax.swing.JComboBox bisabuelo) {
+        Compound te1 = new Compound(
+                "bisabuelo",
+                new Term[]{
+                    new Variable("X"),
+                    new Atom (persona)
+                }
+        );
+        q1 = new Query(te1);
+        while (q1.hasNext()) {
+            Map<String, Term> personas = q1.next();
+            Term t = (Term) personas.get("X");
+            bisabuelo.addItem(t.toString());
+        }
+    }
+    
+    public void Bisnieto(String persona, javax.swing.JComboBox bisnieto) {
+        Compound te1 = new Compound(
+                "bisabuelo",
+                new Term[]{
+                    new Atom (persona),
+                    new Variable("X") 
+                }
+        );
+        q1 = new Query(te1);
+        while (q1.hasNext()) {
+            Map<String, Term> personas = q1.next();
+            Term t = (Term) personas.get("X");
+            bisnieto.addItem(t.toString());
+        }
+    }
     public void Hermano(String persona, javax.swing.JComboBox hermano) {
         Compound te1 = new Compound(
                 "hermano",
@@ -207,7 +254,7 @@ public class Metodos {
         }
     }
     
-    public void Limpiar(javax.swing.JComboBox abuelo, javax.swing.JComboBox abuela, javax.swing.JComboBox papa,
+    public void Limpiar(javax.swing.JComboBox bisnieto,javax.swing.JComboBox bisabuelo, javax.swing.JComboBox bisabuela,javax.swing.JComboBox abuelo, javax.swing.JComboBox abuela, javax.swing.JComboBox papa,
                         javax.swing.JComboBox mama, javax.swing.JComboBox hermano, javax.swing.JComboBox hermana,
                         javax.swing.JComboBox primo, javax.swing.JComboBox prima, javax.swing.JComboBox tio, javax.swing.JComboBox tia){
         abuelo.removeAllItems();
@@ -220,5 +267,9 @@ public class Metodos {
         prima.removeAllItems();
         tio.removeAllItems();
         tia.removeAllItems();
+        bisabuelo.removeAllItems();
+        bisabuela.removeAllItems();
+        bisnieto.removeAllItems();
+        
     }
 }
